@@ -307,18 +307,20 @@ section .cards .cardo {
   }
  section .cards .cardo {
     background: #edeeee;
-    padding: 5rem;
+    padding: 2rem;
     list-style: none;
     border-radius: 5px;
     box-shadow: rgb(225, 225, 225);
-    margin-bottom: 40px;
-    width: calc(100% / 2 - 30px);
+    margin-bottom: 80px;
+    width: calc(100% / 3 - 30px);
     text-align: center;
-    min-height: 400px;
+    min-height: 250px;
     margin-left:550px;
+    margin-top: 80px;
   }
-  .services h2{
+   .services h1{
     color: white;
+    margin-right: 220px;
   }
   .services p{
     color: white;
@@ -326,6 +328,7 @@ section .cards .cardo {
   }
   .cardo p{
     color: black;
+
   }
   .portfolio .cards .cardo {
     padding: 0 0 20px;

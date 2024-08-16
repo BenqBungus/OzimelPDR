@@ -304,6 +304,55 @@ section .cards .card {
     border-radius: 100%;
     object-fit: cover;
   }
+ section .cards .card {
+    background: #edeeee;
+    padding: 5rem;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: rgb(225, 225, 225);
+    margin-bottom: 40px;
+    width: calc(100% / 2 - 30px);
+    text-align: center;
+    min-height: 400px; 
+  }
+  .services h2{
+    color: white;
+  }
+  .services p{
+    color: white;
+    margin-top: 20px;
+  }
+  .card p{
+    color: black;
+  }
+  .portfolio .cards .card {
+    padding: 0 0 20px;
+  }
+  
+  .services .card img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+  
+  .portfolio .card img {
+    width: 100%;
+    padding-bottom: 10px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+  
+  .cards .card p {
+    padding: 0 15px;
+    margin-top: 5px;
+  }
+  
+  .about .row {
+    padding: 0 10px;
+  }
   
         .contact-section {
             display: flex;

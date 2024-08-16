@@ -274,16 +274,16 @@ header{
 }
 section .cards .cardo {
     background: #edeeee;
-    padding: 3rem;
+    padding: 2rem;
     list-style: none;
     border-radius: 5px;
     box-shadow: rgb(225, 225, 225);
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     width: calc(100% / 3 - 30px);
     text-align: center;
-    min-height: 400px; 
+    min-height: 250px;
     margin-left:550px;
-    margin-top:80px;
+    margin-top: 80px;
   }
   .services h2{
     color: white;

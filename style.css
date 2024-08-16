@@ -285,40 +285,6 @@ section .cards .cardo {
     margin-left:550px;
     margin-top: 80px;
   }
-  .services h2{
-    color: white;
-  }
-  .services p{
-    color: white;
-    margin-top: 20px;
-  }
-  .cardo p{
-    color: black;
-  }
-  .portfolio .cards .cardo {
-    padding: 0 0 20px;
-  }
-  
-  .services .cardo img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-    border-radius: 100%;
-    object-fit: cover;
-  }
- section .cards .cardo {
-    background: #edeeee;
-    padding: 2rem;
-    list-style: none;
-    border-radius: 5px;
-    box-shadow: rgb(225, 225, 225);
-    margin-bottom: 80px;
-    width: calc(100% / 3 - 30px);
-    text-align: center;
-    min-height: 250px;
-    margin-left:550px;
-    margin-top: 80px;
-  }
    .services h1{
     color: white;
     margin-right: 220px;

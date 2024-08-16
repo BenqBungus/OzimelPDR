@@ -282,6 +282,7 @@ section .cards .cardo {
     width: calc(100% / 2 - 30px);
     text-align: center;
     min-height: 400px; 
+    margin-left:550px;
   }
   .services h2{
     color: white;

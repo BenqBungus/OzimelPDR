@@ -232,7 +232,7 @@ header{
 	max-width: 100%;
 	width: 560px;
 	height: auto;
-    margin-left: auto;
+    margin-right: 360px;
     display: block; 
 }
 .about-text h2{
@@ -272,60 +272,6 @@ header{
 	color: var(--secound-color);
 	line-height: 28px;
 }
-section .cards .cardo {
-    background: #edeeee;
-    padding: 2rem;
-    list-style: none;
-    border-radius: 5px;
-    box-shadow: rgb(225, 225, 225);
-    margin-bottom: 80px;
-    width: calc(100% / 3 - 30px);
-    text-align: center;
-    min-height: 250px;
-    margin-left:550px;
-    margin-top: 80px;
-  }
-   .services h1{
-    color: white;
-    margin-right: 220px;
-  }
-  .services p{
-    color: white;
-    margin-top: 20px;
-  }
-  .cardo p{
-    color: black;
-
-  }
-  .portfolio .cards .cardo {
-    padding: 0 0 20px;
-  }
-  
-  .services .cardo img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-    border-radius: 100%;
-    object-fit: cover;
-  }
-  
-  .portfolio .cardo img {
-    width: 100%;
-    padding-bottom: 10px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 7px;
-  }
-  
-  .cards .cardo p {
-    padding: 0 15px;
-    margin-top: 5px;
-  }
-  
-  .about .row {
-    padding: 0 10px;
-  }
-  
         .contact-section {
             display: flex;
             justify-content: center;
@@ -640,3 +586,107 @@ section .cards .cardo {
 	margin-top: 5rem;
 	text-align: center;
 }
+
+
+/*Services Products*/
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0 0;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  section > p {
+    text-align: center;
+  }
+  
+  section .cards {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin-top: 50px;
+    padding: 0 10px;
+    justify-content: space-between;
+  }
+  
+  section.about {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .about .company-info {
+    margin-top: 30px;
+  }
+  
+  .about h3 {
+    margin: 30px 0 10px;
+  }
+  
+  .about .team {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .about .team ul {
+    padding-left: 20px;
+  }
+  
+  section .cards .cardin {
+    background: #dddddd;
+    padding: 1rem 5rem; 
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: rgb(225, 225, 225);
+    margin-bottom: 40px;
+    width: calc(100% / 2 - 30px);
+    text-align: center;
+    max-height: 700px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+  .services h2{
+    color: white;
+  }
+  .services p{
+    color: white;
+    margin-top: 20px;
+  }
+  .cardin p{
+    color: black;
+  }
+  .portfolio .cards .cardin {
+    padding: 0 0 20px;
+  }
+  
+  .services .cardin img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px; 
+    border-radius: 100%;
+    object-fit: cover;
+    margin-left: 70px;
+}
+  
+  .portfolio .cardin img {
+    width: 100%;
+    padding-bottom: 10px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+  
+  .cards .cardin p {
+    padding: 0 15px;
+    margin-top: 5px;
+}
+  
+  .about .row {
+    padding: 0 10px;
+  }

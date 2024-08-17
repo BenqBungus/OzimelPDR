@@ -690,3 +690,189 @@ section {
   .about .row {
     padding: 0 10px;
   }
+/* General Mobile Styles */
+@media only screen and (max-width: 768px) {
+
+    /* Navigation */
+    nav {
+        height: 6rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-container .logo img {
+        width: 120px;
+    }
+
+    /* Header Section */
+    .header-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .header-left {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .header-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-left h3 {
+        font-size: 1.8rem;
+    }
+
+    .header-left p {
+        font-size: 1rem;
+    }
+
+    .header-right {
+        width: 300px;
+        height: 300px;
+        transform: rotate(0deg);
+        margin: 0 auto;
+        right: 0;
+    }
+
+    .sq-box img {
+        max-width: 100%;
+        top: 30px;
+        left: -50px;
+    }
+
+    /* About Section */
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-img img {
+        margin-right: 0;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .about-text {
+        padding: 20px;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    /* Gallery Section */
+    .gallery .gallery_container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery_container .gallery_items {
+        width: 100%;
+    }
+
+    /* Portfolio Section */
+    .portfolio-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .col img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Services Section */
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .row {
+        padding: 30px;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px 0;
+    }
+
+    /* CTA Boxes */
+    .cta-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Fonts */
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Extra Small Devices */
+@media only screen and (max-width: 480px) {
+
+    /* Header Section */
+    .header-left h1 {
+        font-size: 2rem;
+    }
+
+    .header-left h3 {
+        font-size: 1.5rem;
+    }
+
+    .header-left p {
+        font-size: 0.9rem;
+    }
+
+    .header-right {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* About Section */
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .card {
+        height: 150px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}

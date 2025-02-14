@@ -1,92 +1,168 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Секция Галерия</title>
+</head>
 <style>
- @import url(https://fonts.bunny.net/css?family=amita:700);
-
+    /* General Styles */
 body {
-    background: url(./images/background.jpg)
-        center center/cover no-repeat;
-    min-height: 100vh;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: 'Amita', cursive;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-h1 {
-    color: #fefae0;
-    font-family: Amita;
-    margin: 20px auto;
-    width: 450px;
-    font-size: 3rem;
-    text-align: center;
-    border-bottom: 10px double #b4afab;
+.gallery-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  text-align: center;
 }
 
-img {
-    width: 450px;
-    height: 300px;
-    margin: 10px;
-    border: 10px solid #fefae0;
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
-    transition-duration: 1s;
-    box-sizing: border-box; 
+.gallery-title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #fff;
+  border-bottom: 5px solid #ff0000;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-img:hover {
-    border: 10px solid #fff; 
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    -webkit-filter: none;
-    filter: none;
+/* Gallery Container */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+/* Gallery Item */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
+
+.gallery-item:hover {
+  border-color: #ff0000;
+  transform: scale(1.05);
+}
+
+.gallery-image, .gallery-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image, .gallery-item:hover .gallery-video {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
 @media only screen and (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-        width: 100%;
-        margin: 10px auto;
-    }
+  .gallery-title {
+    font-size: 2.5rem;
+  }
 
-    img {
-        width: 300px;
-        height: 200px;
-    }
+  .gallery-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-        width: 90%;
-        margin: 10px auto;
-    }
+  .gallery-title {
+    font-size: 2rem;
+  }
 
-    img {
-        width: 100%;
-        height: auto;
-        margin: 5px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 <body>
-  <h1>Крайни резултати</h1>
-  <div class="container">
-      <img src="./images/while working images/1.jpg" alt="">
-      <img src="./images/while working images/2.jpg" alt="">
-      <img src="./images/while working images/3.jpg" alt="">
-      <img src="./images/while working images/4.jpg" alt="">
-      <img src="./images/while working images/5.jpg" alt="">
-      <img src="./images/while working images/6.jpg" alt="">
-  </div>
+  <section class="gallery-section">
+    <h1 class="gallery-title">Галерия</h1>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="./images/while working images/1.jpg" alt="Image 1" class="gallery-image">
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="./images/while working images/2.jpg" alt="Image 2" class="gallery-image">
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <video controls class="gallery-video">
+          <source src="./videos/476815186_28384611124520373_5897187269717823108_n.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="./images/while working images/3.jpg" alt="Image 3" class="gallery-image">
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <video controls class="gallery-video">
+          <source src="./videos/477518146_9317871404960170_5036939109836124367_n.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="./images/while working images/4.jpg" alt="Image 4" class="gallery-image">
+        <div class="overlay">
+          <p class="overlay-text">Озимел-ПДР</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
+</html>

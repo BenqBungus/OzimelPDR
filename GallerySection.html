@@ -1,87 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Секция Галерия</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерия | Озимел-ПДР</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
- 
+:root {
+  --red: #d60000;
+  --dark: #1a1a1a;
+  --light: #ffffff;
+  --shadow: rgba(0,0,0,0.25);
+}
+
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Amita', cursive;
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
 }
 
 .gallery-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .gallery-title {
   font-size: 3rem;
-  margin-bottom: 30px;
-  color: #fff;
-  border-bottom: 5px solid #ff0000;
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  margin-bottom: 50px;
 }
 
+.gallery-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--red);
+  animation: underlineGrow 1s ease forwards;
+}
+
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
 
 .gallery-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-/* Gallery Item */
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 10px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .gallery-item:hover {
-  border-color: #ff0000;
-  transform: scale(1.05);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(214,0,0,0.3);
 }
 
-.gallery-image, .gallery-video {
+.gallery-item img,
+.gallery-item video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
-.gallery-item:hover .gallery-image, .gallery-item:hover .gallery-video {
-  transform: scale(1.1);
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.06);
 }
-
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(214, 0, 0, 0.65);
+  color: #fff;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(4px);
 }
 
 .gallery-item:hover .overlay {
@@ -89,80 +106,157 @@ body {
 }
 
 .overlay-text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.play-icon {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-icon::before {
+  content: '';
+  border-left: 18px solid var(--red);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  position: relative;
+}
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px var(--shadow);
+}
+.lightbox-close {
+  position: absolute;
+  top: -40px; right: 0;
+  font-size: 2rem;
   color: #fff;
-  text-align: center;
-  margin: 0;
-  padding: 10px;
-}
-
-@media only screen and (max-width: 768px) {
-  .gallery-title {
-    font-size: 2.5rem;
-  }
-
-  .gallery-container {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .gallery-title {
-    font-size: 2rem;
-  }
-
-  .gallery-container {
-    grid-template-columns: 1fr;
-  }
+  cursor: pointer;
 }
 </style>
+</head>
 <body>
-  <section class="gallery-section">
-    <h1 class="gallery-title">Галерия</h1>
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="./images/while working images/1.jpg" alt="Image 1" class="gallery-image">
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="./images/while working images/2.jpg" alt="Image 2" class="gallery-image">
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <video controls class="gallery-video">
-          <source src="476815186_28384611124520373_5897187269717823108_n.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="./images/while working images/3.jpg" alt="Image 3" class="gallery-image">
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <video controls class="gallery-video">
-          <source src="477518146_9317871404960170_5036939109836124367_n.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="./images/while working images/4.jpg" alt="Image 4" class="gallery-image">
-        <div class="overlay">
-          <p class="overlay-text">Озимел-ПДР</p>
-        </div>
-      </div>
+
+<section class="gallery-section">
+  <h1 class="gallery-title">Галерия</h1>
+  <div class="gallery-container">
+
+    
+    <div class="gallery-item" data-type="image" data-src="./images/while working images/1.jpg">
+      <img src="./images/while working images/1.jpg" alt="Image 1">
+      <div class="overlay"><span class="overlay-text">Озимел-ПДР</span></div>
     </div>
-  </section>
+
+   
+    <div class="gallery-item" data-type="image" data-src="./images/while working images/2.jpg">
+      <img src="./images/while working images/2.jpg" alt="Image 2">
+      <div class="overlay"><span class="overlay-text">Озимел-ПДР</span></div>
+    </div>
+
+ 
+    <div class="gallery-item" data-type="video" data-src="476815186_28384611124520373_5897187269717823108_n.mp4">
+      <video preload="metadata">
+        <source src="476815186_28384611124520373_5897187269717823108_n.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"><div class="play-icon"></div></div>
+    </div>
+
+   
+    <div class="gallery-item" data-type="image" data-src="./images/while working images/3.jpg">
+      <img src="./images/while working images/3.jpg" alt="Image 3">
+      <div class="overlay"><span class="overlay-text">Озимел-ПДР</span></div>
+    </div>
+
+    
+    <div class="gallery-item" data-type="video" data-src="477518146_9317871404960170_5036939109836124367_n.mp4">
+      <video preload="metadata">
+        <source src="477518146_9317871404960170_5036939109836124367_n.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"><div class="play-icon"></div></div>
+    </div>
+
+    
+    <div class="gallery-item" data-type="image" data-src="./images/while working images/4.jpg">
+      <img src="./images/while working images/4.jpg" alt="Image 4">
+      <div class="overlay"><span class="overlay-text">Озимел-ПДР</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <video id="lightbox-video" controls></video>
+  </div>
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+const lbVideo = document.getElementById('lightbox-video');
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const type = item.getAttribute('data-type');
+    const src = item.getAttribute('data-src');
+    lightbox.classList.add('open');
+
+    if (type === 'image') {
+      lbImg.src = src;
+      lbImg.style.display = 'block';
+      lbVideo.style.display = 'none';
+      lbVideo.pause();
+    } else if (type === 'video') {
+      lbVideo.src = src;
+      lbVideo.style.display = 'block';
+      lbImg.style.display = 'none';
+      lbVideo.play();
+    }
+  });
+});
+
+document.querySelector('.lightbox-close').addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  lbVideo.pause();
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('open');
+    lbVideo.pause();
+  }
+});
+</script>
+
 </body>
 </html>
